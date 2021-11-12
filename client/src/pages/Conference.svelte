@@ -27,7 +27,7 @@
 
     onMount(() => {
         if (!roomId || !peerId) {
-            generateRoom = true
+            generateRoom = true;
             return;
         }
         console.log("starting with room:", roomId, "and peer:", peerId);
@@ -38,11 +38,29 @@
 
 <div class="w-full h-full border-2 border=red">
     {#if generateRoom}
-        <div class="text-red-500">
-            <a href="/app/conference?roomId=test&peerId=user1">User 1</a><br>
-            <a href="/app/conference?roomId=test&peerId=user2">User 2</a><br>
-            <a href="/app/conference?roomId=test&peerId=user3">User 3</a><br>
-            <a href="/app/conference?roomId=test&peerId=user4">User 4</a><br>
+        <div class="card text-center shadow-2xl">
+            <div class="card-body">
+                <h2 class="card-title">Join a conference</h2>
+                <p>
+                    Rerum reiciendis beatae tenetur excepturi aut pariatur est
+                    eos. Sit sit necessitatibus veritatis sed molestiae
+                    voluptates incidunt iure sapiente.
+                </p>
+                <div class="justify-center card-actions">
+                    <button class="btn">neutral</button>
+                    <button class="btn btn-primary">Join as First</button>
+                    <button class="btn btn-secondary">secondary</button>
+                    <button class="btn btn-accent">accent</button>
+                    <a href="/app/conference?roomId=test&peerId=user1">User 1</a
+                    ><br />
+                    <a href="/app/conference?roomId=test&peerId=user2">User 2</a
+                    ><br />
+                    <a href="/app/conference?roomId=test&peerId=user3">User 3</a
+                    ><br />
+                    <a href="/app/conference?roomId=test&peerId=user4">User 4</a
+                    ><br />
+                </div>
+            </div>
         </div>
     {:else}
         <!-- top -->
@@ -64,7 +82,9 @@
             />
         </div>
         <div class="absolute top-15 left-0 badge badge-primary">{roomId}</div>
-        <div class="absolute top-15 right-0 badge badge-secondary">{peerId}</div>
+        <div class="absolute top-15 right-0 badge badge-secondary">
+            {peerId}
+        </div>
 
         <!-- first -->
         <div class="absolute bottom-0 left-0 w-1/3 h-1/3 border border-red">
@@ -120,5 +140,5 @@
                 controls={false}
             />
         </div>
-        {/if}
+    {/if}
 </div>
